@@ -88,6 +88,11 @@ portfolio/
 - **Plutus**: aplicação de inteligência financeira pessoal
 - **New Marketplace**: projeto acadêmico em equipe
 
+## ⚖️ Licença e uso da marca
+
+- **Código-fonte (HTML, CSS e JavaScript):** licença [MIT](LICENSE). Você pode reutilizar, desde que **mantenha o aviso de copyright com o meu nome**.
+- **Logo, nome, identidade visual, fotos e imagens dos projetos:** **todos os direitos reservados**. Não estão incluídos na licença MIT e não podem ser usados sem autorização. Detalhes em [MARCA-E-IMAGENS.md](MARCA-E-IMAGENS.md).
+
 ## 👩‍💻 Autora
 
 **Amanda Baía**
