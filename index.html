@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: obrigatório para a página ser responsiva no celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portfólio - Amanda Baía</title>
+
+  <!-- BOOTSTRAP 5 (CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonte do Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Meu CSS (cores, tema escuro e detalhes) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       PORTFÓLIO - AMANDA BAÍA
+       Atividade Encontro 08 - Bootstrap 5
+       (projeto anterior + Bootstrap)
+       ===================================================== -->
+
+
+  <!-- ========== 1. NAVBAR ========== -->
+  <!-- navbar-expand-lg: menu aberto em telas grandes e "hambúrguer" no celular -->
+  <!-- fixed-top + navbar-capa: transparente em cima da capa; o JS deixa azul ao rolar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top navbar-capa">
+    <div class="container">
+      <!-- LOGO: versão clara (logo-navbar.svg), feita para aparecer na navbar azul -->
+      <a class="navbar-brand logo-nav" href="#inicio">
+        <img src="img/logo-navbar.svg" alt="Amanda Baía">
+      </a>
+
+      <!-- botão hambúrguer (aparece só em telas pequenas) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+              aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Mim</a></li>
+          <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <!-- botão do tema escuro (JS) -->
+          <li class="nav-item ms-lg-3 my-2 my-lg-0">
+            <button id="tema" class="btn btn-sm btn-outline-light rounded-pill px-3">Tema Escuro</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ========== 2. HERO SECTION (CAPA EM TELA CHEIA) ========== -->
+  <!-- fundo: constelação + camada escura por cima (no CSS) -->
+  <header id="inicio" class="hero-capa">
+    <div class="container text-center hero-conteudo">
+
+      <img src="img/logo-icone.svg" alt="" class="hero-icone">
+
+      <!-- nome entre duas linhas, como na referência -->
+      <h1 class="hero-nome">Amanda Baía</h1>
+
+      <p class="hero-sub">Advogada Cível <span>|</span> Estudante de ADS <span>|</span> Unindo Direito e Tecnologia</p>
+      <p class="hero-sub-en" lang="en">Civil Lawyer <span>|</span> ADS Student <span>|</span> Bridging Law and Technology</p>
+
+      <!-- botão de chamada para ação -->
+      <a href="#contato" class="btn btn-outline-light rounded-pill px-4 mt-4">Vamos conversar</a>
+    </div>
+
+    <!-- "saiba mais" com seta animada, levando para a próxima seção -->
+    <a href="#sobre" class="hero-seta">
+      Saiba mais
+      <span>&#8595;</span>
+    </a>
+  </header>
+
+
+  <main>
+
+    <!-- ========== 3. SOBRE MIM ========== -->
+    <section id="sobre" class="py-5">
+      <div class="container">
+        <h2 class="titulo-secao text-center mb-4">Sobre Mim</h2>
+
+        <!-- foto + apresentação (vieram da capa antiga) -->
+        <div class="row align-items-center g-4 mb-5">
+          <div class="col-12 col-md-4 text-center">
+            <img src="img/profilea.jpeg" alt="Foto de perfil de Amanda Baía" class="foto-perfil rounded-circle shadow">
+          </div>
+          <div class="col-12 col-md-8 text-center text-md-start">
+            <p class="lead mb-3">
+              Me chamo <strong>Amanda Baía</strong>, Desenvolvedora Front-End em formação.
+              Procuro sempre unir o pensamento analítico do Direito com a criatividade da música
+              para construir soluções em tecnologia.
+            </p>
+            <p class="mb-3">
+              Advogada, musicista, servidora pública federal e estudante de Análise e Desenvolvimento
+              de Sistemas, três áreas que exigem atenção a detalhes, disciplina e pensamento estruturado.
+            </p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+              <a href="https://www.linkedin.com/in/amandabaiaadv/" target="_blank" class="btn btn-outline-primary">LinkedIn</a>
+              <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-outline-primary">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 colunas no computador (md), 1 coluna no celular -->
+        <div class="row g-4">
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-3">
+              <div class="card-body">
+                <h3 class="h5 fw-bold text-azul">Formação</h3>
+                <ul class="mb-0">
+                  <li>Bacharel em Direito pelo Centro Universitário de João Pessoa (desde 2023)</li>
+                  <li>Pós-graduanda em Direito Privado (2025–2026, previsão)</li>
+                  <li>Graduanda em Análise e Desenvolvimento de Sistemas (2026–2027, previsão)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-3">
+              <div class="card-body">
+                <h3 class="h5 fw-bold text-azul">Interesse Profissional</h3>
+                <p class="mb-0">
+                  Desenvolvimento Front-End e criação de soluções para o dia a dia da advocacia
+                  (LegalTech), unindo tecnologia, organização e atenção aos detalhes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-3">
+              <div class="card-body">
+                <h3 class="h5 fw-bold text-azul">Objetivo Profissional</h3>
+                <p class="mb-0">
+                  Ingressar no meio profissional de tecnologia por meio de estágio, contribuindo
+                  com minha bagagem analítica e construindo soluções em conjunto com a equipe.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== 4. HABILIDADES ========== -->
+    <section id="habilidades" class="py-5 bg-azul-nevoa">
+      <div class="container">
+        <h2 class="titulo-secao text-center mb-5">Habilidades</h2>
+
+        <!-- HARD SKILLS -->
+        <h3 class="h5 fw-bold text-azul-escuro mb-3">Hard Skills</h3>
+
+        <!-- Breakpoints: 2 por linha no celular, 3 no tablet (md), 4 no computador (lg) -->
+        <div class="row g-4 text-center mb-5">
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">HTML</span>
+              <p class="fw-bold mb-0">HTML5</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">CSS</span>
+              <p class="fw-bold mb-0">CSS3</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">JS</span>
+              <p class="fw-bold mb-0">JavaScript</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">BS</span>
+              <p class="fw-bold mb-0">Bootstrap</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">PY</span>
+              <p class="fw-bold mb-0">Python</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">FG</span>
+              <p class="fw-bold mb-0">Figma</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">BQ</span>
+              <p class="fw-bold mb-0">Balsamiq</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="habilidade card border-0 shadow-sm py-4">
+              <span class="sigla">LV</span>
+              <p class="fw-bold mb-0">Lovable</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SOFT SKILLS E IDIOMAS (badges do Bootstrap) -->
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <h3 class="h5 fw-bold text-azul-escuro mb-3">Soft Skills</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill tag">Gestão de Pessoas</span>
+              <span class="badge rounded-pill tag">Liderança</span>
+              <span class="badge rounded-pill tag">Organização</span>
+              <span class="badge rounded-pill tag">Comunicação</span>
+              <span class="badge rounded-pill tag">Proatividade</span>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <h3 class="h5 fw-bold text-azul-escuro mb-3">Idiomas</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill tag">Inglês fluente</span>
+              <span class="badge rounded-pill tag">Espanhol intermediário</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========== 5. PROJETOS (CARDS) ========== -->
+    <section id="projetos" class="py-5">
+      <div class="container">
+        <h2 class="titulo-secao text-center mb-5">Projetos</h2>
+
+        <!-- 1 card por linha no celular, 2 no tablet, 3 no computador -->
+        <div class="row g-4">
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">HelpDay</h3>
+                <p class="card-text">
+                  Aplicação web desenvolvida no Lovable que funciona como assistente pessoal para
+                  organizar o dia a dia. Com uso de APIs, gera alertas sobre o tempo e o trânsito
+                  e sugere eventos para o tempo livre.
+                </p>
+                <!-- mt-auto empurra o botão para o fim do card -->
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start">Saiba Mais</a>
+              </div>
+
+              <!-- PRÉVIA: fica escondida e aparece por cima do card ao passar o mouse -->
+              <div class="previa previa-celular" style="background-color: #E9EEF3;">
+                <img src="img/helpday.png" alt="Tela inicial do Help Day">
+                <img src="img/helpday-2.png" alt="Tela de resumo do dia do Help Day">
+                <img src="img/helpday-3.png" alt="Modo anti-procrastinação do Help Day">
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">PortLab</h3>
+                <p class="card-text">
+                  Protótipo de aplicativo para ajudar recém-formados em TI a ganhar experiência e
+                  entrar no mercado. Design da interface desde os rascunhos em papel até protótipos
+                  de baixa (Balsamiq) e alta fidelidade (Figma).
+                </p>
+                <!-- mt-auto empurra o botão para o fim do card -->
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start">Saiba Mais</a>
+              </div>
+
+              <!-- PRÉVIA: fica escondida e aparece por cima do card ao passar o mouse -->
+              <div class="previa previa-celular" style="background-color: #221179;">
+                <img src="img/portlab.png" alt="Tela inicial do PortLab: escolha seu perfil">
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">Plutus</h3>
+                <p class="card-text">
+                  Aplicação web de inteligência financeira pessoal, desenvolvida no Lovable.
+                  Organiza as finanças, mostra para onde o dinheiro vai e cria um caminho claro
+                  até cada meta.
+                </p>
+                <!-- mt-auto empurra o botão para o fim do card -->
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start">Saiba Mais</a>
+              </div>
+
+              <!-- PRÉVIA: fica escondida e aparece por cima do card ao passar o mouse -->
+              <div class="previa" style="background-color: #120F2E;">
+                <img src="img/plutus.png" alt="Tela inicial do Plutus: O deus da riqueza, agora no seu bolso">
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">New Marketplace</h3>
+                <span class="badge rounded-pill tag align-self-start mb-2">Projeto em equipe</span>
+                <p class="card-text">
+                  Projeto acadêmico em equipe sobre marketplace, com o tema "A sua oportunidade".
+                  Desenvolvido com Gabriela Falcão, Matheus Arruda e Vitor Campelo.
+                </p>
+                <!-- mt-auto empurra o botão para o fim do card -->
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start">Saiba Mais</a>
+              </div>
+
+              <!-- PRÉVIA: fica escondida e aparece por cima do card ao passar o mouse -->
+              <div class="previa previa-inteira" style="background-color: #101C2C;">
+                <img src="img/marketplace.png" alt="Capa do projeto Marketplace: a sua oportunidade">
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== 6. FORMULÁRIO DE CONTATO ========== -->
+    <section id="contato" class="py-5 bg-azul-nevoa">
+      <div class="container">
+        <h2 class="titulo-secao text-center mb-5">Contato</h2>
+
+        <!-- formulário centralizado: ocupa 8 das 12 colunas no computador -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+            <div class="card border-0 shadow-sm p-4">
+
+              <!-- novalidate: deixa o Bootstrap cuidar da validação -->
+              <form id="formContato" class="needs-validation" novalidate>
+
+                <!-- nome e e-mail lado a lado no computador -->
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="nome" class="form-label fw-bold">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Seu nome" required minlength="3">
+                    <div class="invalid-feedback">Digite seu nome (mínimo 3 letras).</div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label for="email" class="form-label fw-bold">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="seuemail@exemplo.com" required>
+                    <div class="invalid-feedback">Digite um e-mail válido.</div>
+                  </div>
+                </div>
+
+                <div class="mt-3">
+                  <label for="assunto" class="form-label fw-bold">Assunto</label>
+                  <select class="form-select" id="assunto">
+                    <option>Oportunidade de estágio</option>
+                    <option>Projeto</option>
+                    <option>Outro</option>
+                  </select>
+                </div>
+
+                <div class="mt-3">
+                  <label for="mensagem" class="form-label fw-bold">Mensagem</label>
+                  <textarea class="form-control" id="mensagem" rows="5" maxlength="1000" placeholder="Escreva sua mensagem" required></textarea>
+                  <div class="invalid-feedback">Escreva uma mensagem.</div>
+                  <div id="contador" class="form-text text-end">0/1000 caracteres</div>
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+                  <button type="submit" class="btn btn-primary btn-lg flex-fill">Enviar</button>
+                  <button type="button" id="limpar" class="btn btn-outline-primary btn-lg">Limpar</button>
+                </div>
+              </form>
+
+              <!-- alerta de sucesso (aparece pelo JS) -->
+              <div id="sucesso" class="alert alert-success mt-4 mb-0 d-none" role="alert"></div>
+
+              <p class="text-center small mt-4 mb-0">
+                Ou escreva direto para
+                <a href="mailto:amandabaiaadv@gmail.com" class="link-azul">amandabaiaadv@gmail.com</a>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========== 7. FOOTER ========== -->
+  <footer class="bg-azul-escuro text-white text-center py-4">
+    <div class="container">
+      <p class="mb-1 fw-bold">Amanda Baía</p>
+      <p class="mb-1 fw-bold">"May the Odds be Ever in Your Favor"</p>
+      <p class="mb-1 small">&copy; <span id="ano">2026</span> - Todos os direitos reservados.</p>
+      <p id="visita" class="mb-0 small opacity-75"></p>
+    </div>
+  </footer>
+
+
+  <!-- BOOTSTRAP 5 (JS): faz o menu hambúrguer funcionar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Meu JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

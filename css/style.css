@@ -1,0 +1,392 @@
+/* =========================================
+   ATIVIDADE CSS - AMANDA BAÍA
+   Atividade 08 - Portfólio com Bootstrap 5
+   ========================================= */
+
+
+/* ---------- 1. VARIÁVEIS (CSS3) - TEMA CLARO ---------- */
+/* Paleta: tons de azul + branco */
+:root {
+  --azul-escuro: #015C91;    /* navbar, rodapé, hover dos botões */
+  --azul: #1F74A6;           /* botões (um pouco mais escuro que #2C82B5 para o texto branco ficar legível) */
+  --azul-claro: #88CDF6;     /* bordas e linhas */
+  --azul-gelo: #BCE5FF;      /* seleção de texto */
+  --azul-nevoa: #EEF8FF;     /* fundo das seções Habilidades e Contato */
+  --titulo: #015C91;         /* títulos */
+  --destaque: #1F74A6;       /* títulos dos cards, "Olá!", links */
+}
+
+
+/* ---------- 2. TEMA ESCURO ---------- */
+/* IMPORTANTE: o JS coloca data-bs-theme="dark" no <html>.
+   Por isso o seletor é [data-bs-theme="dark"], e NÃO body.dark.
+   Aqui eu troco as MINHAS cores e também as cores do Bootstrap (--bs-...). */
+[data-bs-theme="dark"] {
+  /* minhas cores: tons CLAROS de azul, para aparecer no fundo escuro */
+  --titulo: #BCE5FF;
+  --destaque: #88CDF6;
+  --azul-nevoa: #15212F;
+
+  /* cores do Bootstrap */
+  --bs-body-bg: #0F1A26;              /* fundo da página */
+  --bs-body-color: #E8F1F8;           /* texto normal (quase branco) */
+  --bs-secondary-color: #B8C7D6;      /* textos pequenos, ex: contador */
+  --bs-card-bg: #1B2838;              /* fundo dos cards */
+  --bs-border-color: #3B4F66;         /* bordas dos campos */
+}
+
+/* os cards do Bootstrap usam a variável dentro da classe .card */
+[data-bs-theme="dark"] .card {
+  --bs-card-bg: #1B2838;
+  --bs-card-color: #E8F1F8;
+}
+
+
+/* ---------- 3. CLASSES DE COR ---------- */
+.bg-azul-escuro   { background-color: var(--azul-escuro) !important; }
+.bg-azul-nevoa    { background-color: var(--azul-nevoa); }
+.text-azul        { color: var(--destaque); }
+.text-azul-escuro { color: var(--titulo); }
+.link-azul        { color: var(--destaque); }
+
+[data-bs-theme="dark"] .bg-azul-escuro {
+  background-color: #0A121C !important;
+}
+
+
+/* ---------- 4. MENU (NAVBAR) MAIS LEGÍVEL ---------- */
+/* o Bootstrap deixa os links com 55% de branco, ficava apagado */
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: #FFFFFF;
+}
+
+
+/* ---------- 4.1 LOGO NA NAVBAR ---------- */
+/* SVG sem fundo: a logo fica direto sobre a navbar */
+.logo-nav img {
+  height: 44px;      /* altura fixa; a largura se ajusta sozinha */
+  width: auto;
+  display: block;
+}
+
+/* no celular, a logo fica um pouco menor */
+@media (max-width: 576px) {
+  .logo-nav img {
+    height: 36px;
+  }
+}
+
+
+/* ---------- 5. BOTÕES DO BOOTSTRAP COM A MINHA COR ---------- */
+/* O Bootstrap 5 usa variáveis próprias (--bs-...) nos botões */
+.btn-primary {
+  --bs-btn-bg: var(--azul);
+  --bs-btn-border-color: var(--azul);
+  --bs-btn-hover-bg: var(--azul-escuro);
+  --bs-btn-hover-border-color: var(--azul-escuro);
+  --bs-btn-active-bg: var(--azul-escuro);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--titulo);
+  --bs-btn-border-color: var(--titulo);
+  --bs-btn-hover-bg: var(--azul-escuro);
+  --bs-btn-hover-color: #FFFFFF;
+  --bs-btn-hover-border-color: var(--azul-escuro);
+  --bs-btn-active-bg: var(--azul-escuro);
+}
+
+
+/* ---------- 6. DETALHES GERAIS ---------- */
+html {
+  scroll-behavior: smooth;   /* rolagem suave ao clicar no menu */
+}
+
+body {
+  transition: background-color 0.4s, color 0.4s;   /* troca de tema suave */
+}
+
+/* compensa a navbar fixa para o título da seção não ficar escondido */
+section,
+header {
+  scroll-margin-top: 70px;
+}
+
+h1, h2, .navbar-brand {
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+::selection {
+  background: var(--azul-gelo);
+  color: #015C91;
+}
+
+/* título das seções com uma linha embaixo */
+.titulo-secao {
+  font-weight: 700;
+  color: var(--titulo);
+}
+
+.titulo-secao::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 2px;
+  background-color: var(--azul-claro);
+}
+
+.texto-sobre {
+  max-width: 720px;
+}
+
+
+/* ---------- 7. HERO ---------- */
+.hero {
+  background: linear-gradient(135deg, #EEF8FF, #BCE5FF);
+}
+
+[data-bs-theme="dark"] .hero {
+  background: linear-gradient(135deg, #0F1A26, #015C91);
+}
+
+.foto-perfil {
+  width: 280px;
+  height: 280px;
+  max-width: 100%;
+  object-fit: cover;
+  border: 6px solid #FFFFFF;
+}
+
+
+/* ---------- 8. HABILIDADES ---------- */
+.habilidade {
+  transition: transform 0.3s;
+}
+
+.habilidade:hover {
+  transform: translateY(-5px);
+}
+
+/* círculo com a sigla da habilidade */
+.sigla {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #015C91, #2C82B5);
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/* tags de soft skills e idiomas */
+.tag {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: var(--bs-body-bg);
+  color: var(--titulo);
+  border: 1px solid var(--azul-claro);
+}
+
+
+/* ---------- 9. PROJETOS ---------- */
+.projeto {
+  border: none;
+  border-top: 4px solid var(--azul-claro);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projeto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(1, 92, 145, 0.18) !important;
+}
+
+
+/* ---------- 10. FORMULÁRIO ---------- */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 0.25rem rgba(44, 130, 181, 0.35);
+}
+
+/* ---------- 11. PRÉVIA DOS PROJETOS (APARECE NO HOVER) ---------- */
+/* O card continua igual. A prévia fica POR CIMA dele, invisível,
+   e aparece quando o mouse passa no card. */
+.projeto {
+  position: relative;          /* a prévia se posiciona em relação ao card */
+  overflow: hidden;            /* nada sai para fora das bordas arredondadas */
+}
+
+.previa {
+  position: absolute;
+  inset: 0;                    /* ocupa o card inteiro (top/right/bottom/left = 0) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  opacity: 0;                  /* começa invisível */
+  pointer-events: none;        /* não atrapalha o clique no botão "Saiba Mais" */
+  transition: opacity 0.5s;    /* aparece suavemente */
+}
+
+/* telas de computador (deitadas): preenchem o card */
+.previa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 6px;
+}
+
+/* telas de celular (em pé): aparecem inteiras, lado a lado */
+.previa-celular img {
+  width: auto;
+  max-width: 32%;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* imagens que não podem ser cortadas: aparecem inteiras */
+.previa-inteira img {
+  object-fit: contain;
+}
+
+/* HOVER: ao passar o mouse (ou navegar com Tab), a prévia aparece */
+.projeto:hover .previa,
+.projeto:focus-within .previa {
+  opacity: 1;
+}
+
+/* Celular/tablet não tem mouse: lá o card fica só com o texto */
+@media (hover: none) {
+  .previa {
+    display: none;
+  }
+}
+
+
+/* ---------- 12. CAPA EM TELA CHEIA (HERO) ---------- */
+.hero-capa {
+  position: relative;
+  min-height: 100vh;               /* ocupa a tela inteira (100% da altura da janela) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  /* 1ª camada: escurecimento | 2ª camada: o fundo de constelação */
+  background:
+    linear-gradient(rgba(8, 20, 38, 0.35), rgba(8, 20, 38, 0.65)),
+    url("../img/fundo-constelacao.svg") center / cover no-repeat;
+}
+
+.hero-icone {
+  display: block;          /* fica sozinho na linha, em cima do nome */
+  height: 90px;
+  margin: 0 auto 24px;     /* "auto" nas laterais centraliza */
+}
+
+/* nome com uma linha em cima e outra embaixo */
+.hero-nome {
+  display: inline-block;
+  padding: 14px 32px;
+  border-top: 2px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+  font-family: "Quicksand", Arial, sans-serif;   /* parecida com a fonte da logo */
+  font-weight: 500;
+  font-size: clamp(2rem, 6vw, 3.6rem);           /* diminui sozinha no celular */
+  letter-spacing: 0.25em;                        /* letras espaçadas */
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.hero-sub {
+  font-family: "Quicksand", Arial, sans-serif;
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.hero-sub-en {
+  font-family: "Quicksand", Arial, sans-serif;
+  font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+  letter-spacing: 0.12em;
+  color: #BCE5FF;                  /* versão em inglês num tom mais suave */
+  margin-bottom: 0;
+}
+
+/* separadores "|" mais discretos */
+.hero-sub span,
+.hero-sub-en span {
+  margin: 0 0.6em;
+  opacity: 0.6;
+}
+
+/* "Saiba mais" com seta no rodapé da capa */
+.hero-seta {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.hero-seta span {
+  font-size: 1.4rem;
+  animation: pular 1.8s ease-in-out infinite;   /* seta "quicando" */
+}
+
+@keyframes pular {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+
+.hero-seta:hover {
+  color: #BCE5FF;
+}
+
+
+/* ---------- 13. NAVBAR TRANSPARENTE SOBRE A CAPA ---------- */
+.navbar-capa {
+  background-color: transparent;
+  transition: background-color 0.4s, box-shadow 0.4s;
+}
+
+/* o JS adiciona "rolou" quando a página desce: a navbar fica azul */
+.navbar-capa.rolou {
+  background-color: var(--azul-escuro);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme="dark"] .navbar-capa.rolou {
+  background-color: #0A121C;
+}
+
+/* no celular, quando o menu abre, ele precisa de fundo */
+@media (max-width: 991px) {
+  .navbar-capa .navbar-collapse.show,
+  .navbar-capa .navbar-collapse.collapsing {
+    background-color: rgba(1, 92, 145, 0.95);
+    padding: 8px 16px;
+    border-radius: 10px;
+  }
+}
