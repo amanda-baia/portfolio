@@ -1,6 +1,11 @@
+/*!
+ * Portfólio | Amanda Baía
+ * © 2026 Amanda Baía. Licença MIT: mantenha este aviso em cópias.
+ * Logo, nome e imagens não estão incluídos na licença (todos os direitos reservados).
+ */
 /* =========================================
    ATIVIDADE CSS - AMANDA BAÍA
-   Atividade 08 - Portfólio com Bootstrap 5
+   Portfólio com Bootstrap 5 (versão 4)
    ========================================= */
 
 
@@ -11,9 +16,9 @@
   --azul: #1F74A6;           /* botões (um pouco mais escuro que #2C82B5 para o texto branco ficar legível) */
   --azul-claro: #88CDF6;     /* bordas e linhas */
   --azul-gelo: #BCE5FF;      /* seleção de texto */
-  --azul-nevoa: #EEF8FF;     /* fundo das seções Habilidades e Contato */
+  --azul-nevoa: #EEF8FF;     /* fundo das seções Experiência e Contato */
   --titulo: #015C91;         /* títulos */
-  --destaque: #1F74A6;       /* títulos dos cards, "Olá!", links */
+  --destaque: #1F74A6;       /* títulos dos cards, links */
 }
 
 
@@ -82,6 +87,26 @@
 }
 
 
+/* ---------- 4.2 BOTÃO DE IDIOMA (PT / EN) ---------- */
+/* um botão só: mostra o idioma para o qual o site vai mudar no próximo clique */
+.btn-idioma {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 30px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-idioma:hover {
+  background-color: #FFFFFF;
+  color: #015C91;
+}
+
+
 /* ---------- 5. BOTÕES DO BOOTSTRAP COM A MINHA COR ---------- */
 /* O Bootstrap 5 usa variáveis próprias (--bs-...) nos botões */
 .btn-primary {
@@ -99,6 +124,12 @@
   --bs-btn-hover-color: #FFFFFF;
   --bs-btn-hover-border-color: var(--azul-escuro);
   --bs-btn-active-bg: var(--azul-escuro);
+}
+
+/* botão "Baixar currículo" da capa: branco com texto azul */
+.btn-curriculo {
+  color: #015C91;
+  font-weight: 600;
 }
 
 
@@ -142,20 +173,18 @@ h1, h2, .navbar-brand {
   background-color: var(--azul-claro);
 }
 
-.texto-sobre {
-  max-width: 720px;
+.subtitulo-secao {
+  max-width: 680px;
+}
+
+/* contorno bem visível em quem recebe foco pelo teclado (Tab) */
+:focus-visible {
+  outline: 3px solid #88CDF6;
+  outline-offset: 2px;
 }
 
 
-/* ---------- 7. HERO ---------- */
-.hero {
-  background: linear-gradient(135deg, #EEF8FF, #BCE5FF);
-}
-
-[data-bs-theme="dark"] .hero {
-  background: linear-gradient(135deg, #0F1A26, #015C91);
-}
-
+/* ---------- 7. FOTO DE PERFIL ---------- */
 .foto-perfil {
   width: 280px;
   height: 280px;
@@ -165,33 +194,11 @@ h1, h2, .navbar-brand {
 }
 
 
-/* ---------- 8. HABILIDADES ---------- */
-.habilidade {
-  transition: transform 0.3s;
-}
-
-.habilidade:hover {
-  transform: translateY(-5px);
-}
-
-/* círculo com a sigla da habilidade */
-.sigla {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 12px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #015C91, #2C82B5);
-  color: #FFFFFF;
-  font-weight: bold;
-}
-
-/* tags de soft skills e idiomas */
+/* ---------- 8. ETIQUETAS (BADGES) ---------- */
+/* usadas em "Projeto em equipe" */
 .tag {
   padding: 8px 14px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   background-color: var(--bs-body-bg);
   color: var(--titulo);
@@ -211,6 +218,30 @@ h1, h2, .navbar-brand {
   box-shadow: 0 8px 20px rgba(1, 92, 145, 0.18) !important;
 }
 
+/* lista com os nomes da equipe */
+.equipe-titulo {
+  margin: 4px 0 2px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+.equipe {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  color: var(--bs-secondary-color);
+}
+
+.equipe li::before {
+  content: "· ";
+  color: var(--azul-claro);
+  font-weight: bold;
+}
+
 
 /* ---------- 10. FORMULÁRIO ---------- */
 .form-control:focus,
@@ -218,6 +249,7 @@ h1, h2, .navbar-brand {
   border-color: var(--azul-claro);
   box-shadow: 0 0 0 0.25rem rgba(44, 130, 181, 0.35);
 }
+
 
 /* ---------- 11. PRÉVIA DOS PROJETOS (APARECE NO HOVER) ---------- */
 /* O card continua igual. A prévia fica POR CIMA dele, invisível,
@@ -388,5 +420,564 @@ h1, h2, .navbar-brand {
     background-color: rgba(1, 92, 145, 0.95);
     padding: 8px 16px;
     border-radius: 10px;
+  }
+}
+
+
+/* ---------- 14. EXPERIÊNCIA (LINHA DO TEMPO) ---------- */
+.linha-tempo {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* a linha vertical: um pseudo-elemento de 2px de largura */
+.linha-tempo::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 11px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--azul-claro), var(--azul-escuro));
+}
+
+/* cada marco da carreira */
+.marco {
+  position: relative;
+  margin-bottom: 28px;
+  padding: 18px 22px;
+  margin-left: 44px;
+  border-radius: 12px;
+  background-color: var(--bs-body-bg);
+  box-shadow: 0 4px 14px rgba(1, 92, 145, 0.08);
+}
+
+/* a "bolinha" na linha do tempo */
+.marco::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: 22px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--bs-body-bg);
+  box-shadow: 0 0 0 2px var(--azul-claro);
+}
+
+/* cor da bolinha conforme a área */
+.marco-direito::before { background-color: var(--azul-escuro); }
+.marco-tech::before    { background-color: var(--azul-claro); }
+.marco-ambos::before   { background: linear-gradient(135deg, var(--azul-escuro) 50%, var(--azul-claro) 50%); }
+
+.marco-periodo {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+.marco-titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 4px 0 2px;
+  color: var(--titulo);
+}
+
+.marco-local {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.marco-texto {
+  margin-bottom: 10px;
+}
+
+.marco-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* etiquetas das áreas */
+.tag-area {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.tag-direito {
+  border: 1px solid var(--titulo);
+  color: var(--titulo);
+}
+
+.tag-tech {
+  background-color: var(--azul-gelo);
+  color: #015C91;
+}
+
+
+/* ---------- 15. HABILIDADES (SEGUE O TEMA CLARO / ESCURO) ---------- */
+/* As cores da seção ficam em variáveis próprias (--hab-...).
+   No tema claro valem as de cima; no tema escuro, o bloco de baixo troca os valores. */
+.secao-habilidades {
+  --hab-fundo: #F4FAFF;
+  --hab-brilho: rgba(136, 205, 246, 0.35);
+  --hab-painel: #FFFFFF;
+  --hab-borda: #BCE5FF;
+  --hab-sombra: 0 6px 20px rgba(1, 92, 145, 0.08);
+  --hab-item: #EEF8FF;
+  --hab-rotulo: #015C91;
+  --hab-estrela: #2C82B5;
+  --hab-icone: #015C91;
+  --hab-icone-borda: #1F74A6;
+  --hab-texto: #1E2A36;
+  --hab-texto-suave: #4A5B6D;
+  --hab-numero: #1F74A6;
+  --hab-circulo: rgba(1, 92, 145, 0.18);
+
+  background:
+    radial-gradient(circle at 85% 30%, var(--hab-brilho), transparent 45%),
+    var(--hab-fundo);
+  color: var(--hab-texto);
+  transition: background-color 0.4s;
+}
+
+[data-bs-theme="dark"] .secao-habilidades {
+  --hab-fundo: #0B1622;
+  --hab-brilho: rgba(44, 130, 181, 0.25);
+  --hab-painel: rgba(255, 255, 255, 0.03);
+  --hab-borda: rgba(136, 205, 246, 0.15);
+  --hab-sombra: none;
+  --hab-item: rgba(255, 255, 255, 0.04);
+  --hab-rotulo: #BCE5FF;
+  --hab-estrela: #88CDF6;
+  --hab-icone: #BCE5FF;
+  --hab-icone-borda: #88CDF6;
+  --hab-texto: #E8F1F8;
+  --hab-texto-suave: #A9BACB;
+  --hab-numero: #88CDF6;
+  --hab-circulo: rgba(136, 205, 246, 0.25);
+}
+
+/* os dois "painéis" (ferramentas e soft skills) */
+.painel {
+  padding: 26px;
+  border-radius: 16px;
+  background-color: var(--hab-painel);
+  border: 1px solid var(--hab-borda);
+  box-shadow: var(--hab-sombra);
+}
+
+/* rótulo pequeno, em maiúsculas e espaçado, com a estrelinha ✦ */
+.rotulo {
+  font-family: "Quicksand", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hab-rotulo);
+  margin-bottom: 18px;
+}
+
+.rotulo span {
+  color: var(--hab-estrela);
+}
+
+/* cada ferramenta: ícone num quadradinho + nome */
+.ferramenta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: var(--hab-item);
+  border: 1px solid var(--hab-borda);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.ferramenta:hover {
+  border-color: var(--hab-icone-borda);
+  transform: translateY(-3px);
+}
+
+.ferramenta-icone {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--hab-icone-borda);
+  color: var(--hab-icone);
+  font-size: 1.2rem;
+}
+
+.ferramenta-nome {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mais-ferramentas {
+  margin: 14px 0 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hab-texto-suave);
+}
+
+.idioma-chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--hab-icone-borda);
+  font-size: 0.85rem;
+  color: var(--hab-texto);
+}
+
+/* lista numerada das soft skills, no estilo "MY PROCESS" */
+.lista-processo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-processo li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* números grandes com fonte serifada (elegante, como no print) */
+.lista-processo .numero {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.3rem;
+  line-height: 1;
+  color: var(--hab-numero);
+  min-width: 44px;
+}
+
+.lista-processo strong {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hab-rotulo);
+}
+
+.lista-processo p {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: var(--hab-texto-suave);
+}
+
+/* a flor, com um círculo fino atrás e a frase por cima */
+.flor-arte {
+  position: relative;
+  height: 100%;
+  min-height: 380px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.flor-arte::before {             /* o arco do círculo, como no print */
+  content: "";
+  position: absolute;
+  width: 130%;
+  aspect-ratio: 1 / 1;
+  left: 10%;
+  top: 4%;
+  border-radius: 50%;
+  border: 1px solid var(--hab-circulo);
+}
+
+.flor-arte img {
+  position: relative;
+  align-self: flex-start;    /* a flor fica no alto; a frase, embaixo */
+  height: 88%;
+  max-height: 400px;
+  width: auto;
+  margin-right: -12px;
+}
+
+/* duas versões da flor: linhas azul-escuras (tema claro) e linhas claras (tema escuro) */
+.flor-tema-escuro {
+  display: none;
+}
+
+[data-bs-theme="dark"] .flor-tema-claro,
+.alto-contraste .flor-tema-claro {
+  display: none;
+}
+
+[data-bs-theme="dark"] .flor-tema-escuro,
+.alto-contraste .flor-tema-escuro {
+  display: block;
+}
+
+.flor-frase {
+  position: absolute;
+  left: 4px;
+  bottom: 8px;
+  max-width: 11ch;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--hab-rotulo);
+  text-shadow: 0 0 12px var(--hab-fundo), 0 0 4px var(--hab-fundo);   /* contorno da cor do fundo: lê bem mesmo sobre o caule */
+}
+
+@media (max-width: 767px) {
+  .flor-arte {
+    min-height: 320px;
+    margin-top: 12px;
+    justify-content: center;
+  }
+
+  .flor-arte img {
+    max-height: 320px;
+  }
+}
+
+
+/* ---------- 16. BOTÕES FLUTUANTES (ACESSIBILIDADE E VOLTAR AO TOPO) ---------- */
+.botao-flutuante {
+  position: fixed;
+  bottom: 20px;
+  z-index: 1040;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  background-color: var(--azul-escuro);
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
+}
+
+.botao-flutuante:hover {
+  background-color: var(--azul);
+}
+
+.botao-acessibilidade {
+  left: 20px;
+}
+
+/* voltar ao topo: começa escondido; o JS adiciona "visivel" */
+.botao-topo {
+  right: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.botao-topo.visivel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* painel de acessibilidade */
+.painel-acessibilidade {
+  position: fixed;
+  left: 20px;
+  bottom: 80px;
+  z-index: 1040;
+  width: 240px;
+  padding: 16px;
+  border-radius: 14px;
+  background-color: #FFFFFF;
+  color: #1E2A36;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+.painel-titulo {
+  font-weight: 700;
+  color: #015C91;
+  margin-bottom: 10px;
+}
+
+.painel-rotulo {
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.btn-a11y {
+  border: 1px solid #015C91;
+  background: #FFFFFF;
+  color: #015C91;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.btn-a11y[data-fonte] {
+  flex: 1;
+  text-align: center;
+}
+
+/* opção ligada: botão preenchido */
+.btn-a11y[aria-pressed="true"] {
+  background-color: #015C91;
+  color: #FFFFFF;
+}
+
+.btn-restaurar {
+  border-style: dashed;
+}
+
+/* link "Pular para o conteúdo": fica fora da tela até receber foco */
+.pular-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  z-index: 2000;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #015C91;
+  font-weight: 700;
+}
+
+.pular-link:focus {
+  left: 12px;
+}
+
+
+/* ---------- 17. ACESSIBILIDADE: ALTO CONTRASTE ---------- */
+/* o JS coloca a classe "alto-contraste" no <html> */
+.alto-contraste body,
+.alto-contraste section,
+.alto-contraste header,
+.alto-contraste footer,
+.alto-contraste .navbar-capa.rolou,
+.alto-contraste .card,
+.alto-contraste .marco,
+.alto-contraste .painel,
+.alto-contraste .ferramenta,
+.alto-contraste .form-control,
+.alto-contraste .form-select {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+
+.alto-contraste .card,
+.alto-contraste .marco,
+.alto-contraste .painel,
+.alto-contraste .form-control,
+.alto-contraste .form-select {
+  border: 2px solid #FFFFFF !important;
+}
+
+.alto-contraste h1, .alto-contraste h2, .alto-contraste h3,
+.alto-contraste .text-azul, .alto-contraste .text-azul-escuro,
+.alto-contraste .marco-periodo, .alto-contraste .equipe-titulo,
+.alto-contraste .rotulo, .alto-contraste .numero {
+  color: #FFE600 !important;           /* amarelo sobre preto: contraste máximo */
+}
+
+.alto-contraste p, .alto-contraste li, .alto-contraste label,
+.alto-contraste .equipe, .alto-contraste .form-text {
+  color: #FFFFFF !important;
+}
+
+.alto-contraste a,
+.alto-contraste .btn,
+.alto-contraste .btn-idioma,
+.alto-contraste .tag,
+.alto-contraste .tag-area {
+  background: #000000 !important;
+  color: #FFE600 !important;
+  border: 2px solid #FFE600 !important;
+}
+
+.alto-contraste .previa {
+  display: none;                       /* sem prévia por cima do texto */
+}
+
+/* o próprio painel de acessibilidade também fica em alto contraste */
+.alto-contraste .painel-acessibilidade {
+  background: #000000 !important;
+  border: 2px solid #FFFFFF;
+}
+
+.alto-contraste .painel-acessibilidade p {
+  color: #FFE600 !important;
+}
+
+.alto-contraste .btn-a11y {
+  background: #000000;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.alto-contraste .btn-a11y[aria-pressed="true"] {
+  background: #FFE600;
+  color: #000000;
+}
+
+
+/* ---------- 18. ACESSIBILIDADE: DESTACAR LINKS ---------- */
+.destacar-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  outline: 2px dashed currentColor;
+  outline-offset: 3px;
+}
+
+
+/* ---------- 19. ACESSIBILIDADE: PAUSAR ANIMAÇÕES ---------- */
+/* vale quando a pessoa liga a opção no painel... */
+.sem-animacoes *,
+.sem-animacoes *::before,
+.sem-animacoes *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* ...e também quando o sistema da pessoa pede "reduzir movimento" */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ---------- 20. RESPONSIVO EXTRA ---------- */
+@media (max-width: 576px) {
+  .marco {
+    margin-left: 36px;
+    padding: 16px;
+  }
+
+  .marco::before {
+    left: -32px;
+  }
+
+  .painel {
+    padding: 18px;
   }
 }
