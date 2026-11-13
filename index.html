@@ -1,275 +1,635 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<!--
+  Portfólio | Amanda Baía
+  © 2026 Amanda Baía. Código-fonte sob licença MIT: mantenha este aviso em cópias.
+  Logo, nome, identidade visual, fotos e imagens: todos os direitos reservados.
+  Veja LICENSE e MARCA-E-IMAGENS.md no repositório.
+-->
+<html lang="pt-br" data-bs-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="claude:viewport-fit-sides" content="cover">
-  <title>Lar de Patas</title>
-  <meta name="description" content="ONG Lar de Patas: adote, apadrinhe ou seja lar temporário de cães, gatos, aves, coelhos e outros animais resgatados em João Pessoa.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap-icons/bootstrap-icons.min.css">
+  <!-- viewport: obrigatório para a página ser responsiva no celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portfólio - Amanda Baía</title>
+  <meta name="description" content="Portfólio de Amanda Baía: advogada cível e estudante de ADS, unindo Direito e Tecnologia.">
+  <meta name="author" content="Amanda Baía">
+
+  <!-- FAVICON: o "A" com a florzinha na aba do navegador -->
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- BOOTSTRAP 5 (CSS) + BOOTSTRAP ICONS (ícones) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Fontes do Google: Poppins (títulos), Quicksand (nome) e Cormorant Garamond (números e frase da flor) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Quicksand:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <!-- Meu CSS (cores, tema escuro, acessibilidade e detalhes) -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="site-header">
-    <nav class="navbar navbar-expand-lg" aria-label="Menu principal">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="images/logo-pequena.webp" alt="Lar de Patas — página inicial" width="61" height="52"></a>
-        <div class="d-flex align-items-center gap-2 order-lg-last">
-          <button id="themeToggle" class="theme-toggle" type="button" aria-label="Alternar tema"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav ms-auto me-lg-3">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/adote.html">Adote</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/ajude.html">Como ajudar</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/saude.html">Saúde pública</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/contato.html">Contato</a></li>
-          </ul>
-          <a class="btn btn-sun btn-sm d-lg-inline-block" href="pages/ajude.html#apadrinhe">Doar</a>
-        </div>
+  <!-- ACESSIBILIDADE: link escondido que aparece com a tecla Tab e pula direto para o conteúdo -->
+  <a href="#conteudo" class="pular-link" data-en="Skip to content">Pular para o conteúdo</a>
+
+
+  <!-- ========== 1. NAVBAR ========== -->
+  <!-- navbar-expand-lg: menu aberto em telas grandes e "hambúrguer" no celular -->
+  <!-- fixed-top + navbar-capa: transparente em cima da capa; o JS deixa azul ao rolar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top navbar-capa">
+    <div class="container">
+      <!-- LOGO: versão clara (logo-navbar.svg), feita para aparecer na navbar azul -->
+      <a class="navbar-brand logo-nav" href="#inicio">
+        <img src="img/logo-navbar.svg" alt="Amanda Baía">
+      </a>
+
+      <!-- botão hambúrguer (aparece só em telas pequenas) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+              aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" data-en-aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#inicio" data-en="Home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre" data-en="About Me">Sobre Mim</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiencia" data-en="Experience">Experiência</a></li>
+          <li class="nav-item"><a class="nav-link" href="#habilidades" data-en="Skills">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos" data-en="Projects">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato" data-en="Contact">Contato</a></li>
+
+          <!-- botão de idioma (JS): um clique alterna entre português e inglês -->
+          <li class="nav-item ms-lg-3 my-2 my-lg-0">
+            <button id="idioma" type="button" class="btn-idioma" aria-label="View the site in English" lang="en">
+              <i class="bi bi-translate" aria-hidden="true"></i> EN
+            </button>
+          </li>
+
+          <!-- botão do tema escuro (JS) -->
+          <li class="nav-item ms-lg-2 mb-2 mb-lg-0">
+            <button id="tema" class="btn btn-sm btn-outline-light rounded-pill px-3">Tema Escuro</button>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+
+  <!-- ========== 2. HERO SECTION (CAPA EM TELA CHEIA) ========== -->
+  <!-- fundo: constelação + camada escura por cima (no CSS) -->
+  <header id="inicio" class="hero-capa">
+    <div class="container text-center hero-conteudo">
+
+      <img src="img/logo-icone.svg" alt="" class="hero-icone">
+
+      <!-- nome entre duas linhas, como na referência -->
+      <h1 class="hero-nome">Amanda Baía</h1>
+
+      <!-- as duas frases já são bilíngues, então não mudam com o botão PT | EN -->
+      <p class="hero-sub">Advogada Cível <span>|</span> Estudante de ADS <span>|</span> Unindo Direito e Tecnologia</p>
+      <p class="hero-sub-en" lang="en">Civil Lawyer <span>|</span> ADS Student <span>|</span> Bridging Law and Technology</p>
+
+      <!-- botões de chamada para ação -->
+      <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+        <a href="#contato" class="btn btn-outline-light rounded-pill px-4" data-en="Let's talk">Vamos conversar</a>
+        <a href="docs/curriculo-amanda-baia.pdf" download class="btn btn-light rounded-pill px-4 btn-curriculo"
+           data-en='<i class="bi bi-download" aria-hidden="true"></i> Download résumé'>
+          <i class="bi bi-download" aria-hidden="true"></i> Baixar currículo
+        </a>
+      </div>
+    </div>
+
+    <!-- "saiba mais" com seta animada, levando para a próxima seção -->
+    <a href="#sobre" class="hero-seta" data-en='Learn more <span aria-hidden="true">&#8595;</span>'>
+      Saiba mais
+      <span aria-hidden="true">&#8595;</span>
+    </a>
   </header>
 
+
   <main id="conteudo">
-    <section class="hero-band" aria-labelledby="hero-title">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow mb-2">ONG de proteção animal · João Pessoa, PB</p>
-          <h1 id="hero-title">Adote. Cuide. <em>Faça a diferença.</em></h1>
-          <p class="lead text-muted-lp mt-3">Resgatamos cães, gatos, aves, coelhos e outros animais abandonados, cuidamos da saúde deles e encontramos famílias responsáveis. Você pode ajudar adotando, apadrinhando ou abrindo sua casa como lar temporário.</p>
-          <div class="d-flex flex-wrap gap-2 mt-4">
-            <a class="btn btn-lp btn-lg" href="pages/adote.html">Conhecer os animais</a>
-            <a class="btn btn-outline-lp btn-lg" href="pages/ajude.html">Quero ajudar</a>
+
+    <!-- ========== 3. SOBRE MIM ========== -->
+    <section id="sobre" class="py-5">
+      <div class="container">
+        <h2 class="titulo-secao text-center mb-4" data-en="About Me">Sobre Mim</h2>
+
+        <!-- foto + apresentação -->
+        <div class="row align-items-center g-4 mb-5">
+          <div class="col-12 col-md-4 text-center">
+            <img src="img/profilea.webp" alt="Foto de perfil de Amanda Baía" data-en-alt="Profile photo of Amanda Baía"
+                 class="foto-perfil rounded-circle shadow">
+          </div>
+          <div class="col-12 col-md-8 text-center text-md-start">
+            <p class="lead mb-3" data-en="My name is <strong>Amanda Baía</strong>, a Front-End Developer in training. I always seek to combine the analytical thinking of Law with the creativity of music to build technology solutions.">
+              Me chamo <strong>Amanda Baía</strong>, Desenvolvedora Front-End em formação.
+              Procuro sempre unir o pensamento analítico do Direito com a criatividade da música
+              para construir soluções em tecnologia.
+            </p>
+            <p class="mb-3" data-en="Lawyer, musician, federal public servant and Systems Analysis and Development student: three areas that demand attention to detail, discipline and structured thinking.">
+              Advogada, musicista, servidora pública federal e estudante de Análise e Desenvolvimento
+              de Sistemas, três áreas que exigem atenção a detalhes, disciplina e pensamento estruturado.
+            </p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+              <a href="https://www.linkedin.com/in/amandabaiaadv/" target="_blank" class="btn btn-outline-primary">
+                <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+              <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-outline-primary">
+                <i class="bi bi-github" aria-hidden="true"></i> GitHub
+              </a>
+              <a href="docs/curriculo-amanda-baia.pdf" download class="btn btn-primary"
+                 data-en='<i class="bi bi-download" aria-hidden="true"></i> Résumé (PDF)'>
+                <i class="bi bi-download" aria-hidden="true"></i> Currículo (PDF)
+              </a>
+            </div>
           </div>
         </div>
-        <div class="hero-pets">
-          <img class="hero-logo" src="images/logo-lar-de-patas.webp" alt="Cão, gato, coelho, calopsita, porquinho-da-índia, furão e jabuti reunidos sobre a placa Lar de Patas" width="900" height="761">
+
+        <!-- 3 colunas no computador (md), 1 coluna no celular -->
+        <div class="row g-4">
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-3">
+              <div class="card-body">
+                <h3 class="h5 fw-bold text-azul" data-en="Education">Formação</h3>
+                <ul class="mb-0">
+                  <li data-en="Bachelor of Laws, Centro Universitário de João Pessoa (since 2023)">Bacharel em Direito pelo Centro Universitário de João Pessoa (desde 2023)</li>
+                  <li data-en="Postgraduate studies in Private Law (2025–2026, expected)">Pós-graduanda em Direito Privado (2025–2026, previsão)</li>
+                  <li data-en="Undergraduate in Systems Analysis and Development (2026–2027, expected)">Graduanda em Análise e Desenvolvimento de Sistemas (2026–2027, previsão)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-3">
+              <div class="card-body">
+                <h3 class="h5 fw-bold text-azul" data-en="Professional Interest">Interesse Profissional</h3>
+                <p class="mb-0" data-en="Front-End development and building solutions for the daily routine of law practice (LegalTech), combining technology, organization and attention to detail.">
+                  Desenvolvimento Front-End e criação de soluções para o dia a dia da advocacia
+                  (LegalTech), unindo tecnologia, organização e atenção aos detalhes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-3">
+              <div class="card-body">
+                <h3 class="h5 fw-bold text-azul" data-en="Career Goal">Objetivo Profissional</h3>
+                <p class="mb-0" data-en="To enter the technology field through an internship, contributing my analytical background and building solutions together with the team.">
+                  Ingressar no meio profissional de tecnologia por meio de estágio, contribuindo
+                  com minha bagagem analítica e construindo soluções em conjunto com a equipe.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section class="stats-strip" aria-label="Números do abrigo">
-      <div><strong data-count="1287">1.287</strong><span>adoções desde 2017</span></div>
-      <div><strong data-count="64">64</strong><span>animais no abrigo hoje</span></div>
-      <div><strong data-count="38">38</strong><span>padrinhos ativos</span></div>
-      <div><strong data-count="21">21</strong><span>lares temporários</span></div>
-    </section>
 
-    <section class="section" aria-labelledby="como-title">
+    <!-- ========== 4. EXPERIÊNCIA (LINHA DO TEMPO) ========== -->
+    <section id="experiencia" class="py-5 bg-azul-nevoa">
       <div class="container">
-        <h2 id="como-title" class="text-center mb-5">Como funciona a adoção</h2>
-        <ol class="steps">
-          <li><span class="dot" aria-hidden="true">1</span><div><h3>Encontre seu pet</h3><p>Veja os animais disponíveis e abra a ficha de quem chamou sua atenção.</p></div></li>
-          <li><span class="dot" aria-hidden="true">2</span><div><h3>Venha conhecer</h3><p>Agende uma visita ao abrigo e faça a entrevista de adoção.</p></div></li>
-          <li><span class="dot" aria-hidden="true">3</span><div><h3>Leve para casa</h3><p>Assine o termo de adoção responsável. A gente acompanha os primeiros meses.</p></div></li>
+        <h2 class="titulo-secao text-center mb-3" data-en="Experience">Experiência</h2>
+        <p class="text-center mx-auto mb-5 subtitulo-secao" data-en="A path between Law and Technology: team coordination, data analysis, law practice and software development.">
+          Uma trajetória entre o Direito e a Tecnologia: coordenação de equipe, análise de dados,
+          advocacia e desenvolvimento de sistemas.
+        </p>
+
+        <!-- <ol>: lista ordenada, porque a ordem (do mais recente ao mais antigo) importa -->
+        <ol class="linha-tempo">
+
+          <li class="marco marco-tech">
+            <span class="marco-periodo" data-en="2026 — present">2026 — atual</span>
+            <h3 class="marco-titulo" data-en="Systems Analysis and Development">Análise e Desenvolvimento de Sistemas</h3>
+            <p class="marco-local">UNIPÊ</p>
+            <p class="marco-texto" data-en="Undergraduate degree in progress (expected 2027). Team projects focused on useful everyday solutions, such as HelpDay, PortLab and New Marketplace.">
+              Graduação em andamento (previsão: 2027). Projetos em equipe com foco em soluções úteis
+              para o dia a dia, como o HelpDay, o PortLab e o New Marketplace.
+            </p>
+            <div class="marco-tags">
+              <span class="tag-area tag-tech" data-en="Technology">Tecnologia</span>
+            </div>
+          </li>
+
+          <li class="marco marco-direito">
+            <span class="marco-periodo" data-en="Feb 2026 — Nov 2026">fev/2026 — nov/2026</span>
+            <h3 class="marco-titulo" data-en="Inspection">Fiscalização</h3>
+            <p class="marco-local">CRECI-PB</p>
+            <p class="marco-texto" data-en="Official inspection trips and reports to the Council's Presidency. Took part in GEAF (COFECI/CRECI) in Alagoas.">
+              Viagens funcionais de fiscalização e relatórios à Presidência do Conselho.
+              Participação no GEAF (COFECI/CRECI), em Alagoas.
+            </p>
+            <div class="marco-tags">
+              <span class="tag-area tag-direito" data-en="Public sector">Setor público</span>
+            </div>
+          </li>
+
+          <li class="marco marco-ambos">
+            <span class="marco-periodo" data-en="Aug 2025 — Aug 2026">ago/2025 — ago/2026</span>
+            <h3 class="marco-titulo" data-en="Appeals Team: Controller and Drafting Lawyer">Equipe Recursal: Controller e Advogada Redatora</h3>
+            <p class="marco-local">Urbano Vitalino Advogados</p>
+            <p class="marco-texto" data-en="Controller of the PAN Appeals portfolio (Aug 2025 to Apr 2026): team coordination, case management and data analysis. Then drafting lawyer on the same team.">
+              Controller da carteira PAN Recursal (ago/2025 a abr/2026): coordenação da equipe,
+              gestão de demandas e análise de dados. Depois, advogada redatora na mesma equipe.
+            </p>
+            <div class="marco-tags">
+              <span class="tag-area tag-direito" data-en="Law">Direito</span>
+              <span class="tag-area tag-tech" data-en="Data">Dados</span>
+              <span class="tag-area tag-tech" data-en="Leadership">Liderança</span>
+            </div>
+          </li>
+
+          <li class="marco marco-direito">
+            <span class="marco-periodo" data-en="Since Jun 2022">a partir de jun/2022</span>
+            <h3 class="marco-titulo" data-en="From intern to appeals team lead">De estagiária a responsável pela equipe recursal</h3>
+            <p class="marco-local">Icaro Rebouças Marcelino Advogados (IRM)</p>
+            <p class="marco-texto" data-en="Started as an intern on the defense team and became the lawyer in charge of the Agibank appeals team.">
+              Começou como estagiária na equipe de defesa e passou a advogada responsável pela
+              equipe recursal Agibank.
+            </p>
+            <div class="marco-tags">
+              <span class="tag-area tag-direito" data-en="Law">Direito</span>
+              <span class="tag-area tag-tech" data-en="Leadership">Liderança</span>
+            </div>
+          </li>
+
         </ol>
       </div>
     </section>
 
-    <section class="section section--tint paws" aria-labelledby="destaque-title">
-      <div class="container">
-        <h2 id="destaque-title" class="text-center mb-3">Esperando um lar</h2>
-        <div class="species-pills" id="speciesPills" role="group" aria-label="Filtrar por espécie">
-          <button type="button" data-especie="" aria-pressed="true">Todos</button>
-          <button type="button" data-especie="cao" aria-pressed="false">Cães</button>
-          <button type="button" data-especie="gato" aria-pressed="false">Gatos</button>
-          <button type="button" data-especie="ave" aria-pressed="false">Aves</button>
-          <button type="button" data-especie="coelho" aria-pressed="false">Coelhos</button>
-          <button type="button" data-especie="outros" aria-pressed="false">Outros</button>
-        </div>
-        <div class="row g-3" id="petsDestaque" aria-live="polite"></div>
-        <div class="text-center mt-4"><a class="btn btn-outline-lp" href="pages/adote.html">Ver todos os animais</a></div>
-      </div>
-    </section>
 
-    <section class="section" aria-labelledby="caramelo-title">
+    <!-- ========== 5. HABILIDADES (FERRAMENTAS + SOFT SKILLS) ========== -->
+    <!-- secao-habilidades: painéis no estilo da referência; as cores seguem o tema claro/escuro -->
+    <section id="habilidades" class="py-5 secao-habilidades">
       <div class="container">
-        <div class="text-center mb-4">
-          <p class="eyebrow mb-1">Guia de campo</p>
-          <h2 id="caramelo-title" class="mb-1">Vira-lata caramelo</h2>
-          <p class="latin mb-0 mx-auto">Canis familiaris, variedade "doce de leite"</p>
-        </div>
-        <div class="field-guide">
-          <ul class="left">
-            <li><strong>Orelhas que entendem tudo</strong><span>Uma em pé, outra caída, dependendo do assunto.</span></li>
-            <li><strong>Pelagem cor de doce de leite</strong><span>Curta, fácil de cuidar e resistente ao calor de João Pessoa.</span></li>
-          </ul>
-          <figure class="mb-0">
-            <img src="images/ilustra-cao.webp" alt="Ilustração de um vira-lata caramelo sentado, olhando para o leitor" width="600" height="826" loading="lazy">
-          </figure>
-          <ul class="right">
-            <li><strong>Saúde de ferro</strong><span>Animais sem raça definida costumam ter menos doenças hereditárias.</span></li>
-            <li><strong>Rabo-termômetro</strong><span>Mede a alegria em tempo real. Chega a 100% quando você chega em casa.</span></li>
-          </ul>
-        </div>
-        <p class="text-center mt-4 mb-0 mx-auto">A maioria dos cães do abrigo é SRD, como o caramelo. Mas o abrigo também acolhe gatos, aves, coelhos e outros bichos. <a href="pages/adote.html">Conheça os nossos</a>.</p>
-      </div>
-    </section>
+        <h2 class="titulo-secao text-center mb-5" data-en="Skills">Habilidades</h2>
 
-    <section class="section section--tint" aria-labelledby="apoio-title">
-      <div class="container">
-        <h2 id="apoio-title" class="text-center mb-5">Como você pode apoiar</h2>
         <div class="row g-4">
-          <div class="col-12 col-md-4">
-            <article class="help-card support-card"><i class="bi bi-house-heart" aria-hidden="true"></i><h3>Adote</h3><p class="mb-0 text-muted-lp">Dê um lar para quem já esperou demais.</p><a href="pages/adote.html">Ver animais <i class="bi bi-arrow-right" aria-hidden="true"></i></a><img src="images/ilustra-gato.webp" alt="" width="532" height="804" loading="lazy"></article>
-          </div>
-          <div class="col-12 col-md-4">
-            <article class="help-card"><i class="bi bi-gift" aria-hidden="true"></i><h3>Doe ou apadrinhe</h3><p class="mb-0 text-muted-lp">A partir de R$ 20 por mês você paga a ração e as vacinas de um animal.</p><a href="pages/ajude.html#apadrinhe">Escolher plano <i class="bi bi-arrow-right" aria-hidden="true"></i></a></article>
-          </div>
-          <div class="col-12 col-md-4">
-            <article class="help-card support-card"><i class="bi bi-door-open" aria-hidden="true"></i><h3>Lar temporário</h3><p class="mb-0 text-muted-lp">Abrigue um animal até a adoção. Nós damos ração e remédios.</p><a href="pages/ajude.html#voluntario">Me cadastrar <i class="bi bi-arrow-right" aria-hidden="true"></i></a><img src="images/ilustra-cao.webp" alt="" width="600" height="826" loading="lazy"></article>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" aria-labelledby="urgente-title">
-      <div class="container">
-        <article class="urgent">
-          <div class="urgent-photo" role="img" aria-label="Foto do Bolinha"><span aria-hidden="true">🐕</span></div>
-          <div>
-            <span class="badge badge-urgent mb-2">Caso urgente</span>
-            <h2 id="urgente-title" class="h3">Cirurgia do Bolinha</h2>
-            <p class="text-muted-lp">Resgatado com fratura na pata traseira após atropelamento no Valentina. A cirurgia ortopédica custa R$ 5.000 e está marcada para o dia 20.</p>
-            <div class="progress mb-2" role="progressbar" aria-label="Arrecadação da vaquinha" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar" style="width:65%" data-progress="65"></div>
-            </div>
-            <p class="mb-3"><span class="money">R$ 3.240</span> arrecadados de <span class="money">R$ 5.000</span> · 87 doadores</p>
-            <a class="btn btn-sun" href="pages/ajude.html#pix">Doar para o Bolinha</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section pt-0" aria-labelledby="saude-title">
-      <div class="container">
-        <article class="pix-box">
-          <div>
-            <p class="eyebrow mb-1" style="color:inherit">Para tutores</p>
-            <h2 id="saude-title" class="h3 mb-1">Seu animal precisa de veterinário e você não pode pagar?</h2>
-            <p class="mb-0">João Pessoa tem clínica e hospital veterinários públicos e gratuitos. Veja endereços e documentos.</p>
-          </div>
-          <a class="btn btn-lp" href="pages/saude.html">Ver atendimento gratuito</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--tint" aria-labelledby="galeria-title">
-      <div class="container">
-        <p class="eyebrow">Galeria</p>
-        <h2 id="galeria-title" class="mb-4">Finais felizes e bastidores</h2>
-        <div class="gallery">
-          <button type="button" style="background:#f6d9a8" data-emoji="🐕" data-caption="Caju chegando ao abrigo, 2025" aria-label="Ampliar foto: Caju chegando ao abrigo, 2025"><b class="fw-normal" aria-hidden="true">🐕</b><span>Caju chegando ao abrigo, 2025</span></button>
-          <button type="button" style="background:#f1e3c4" data-emoji="🐈" data-caption="Mel e os irmãos no primeiro banho" aria-label="Ampliar foto: Mel e os irmãos no primeiro banho"><b class="fw-normal" aria-hidden="true">🐈</b><span>Mel e os irmãos no primeiro banho</span></button>
-          <button type="button" style="background:#efd5dc" data-emoji="🐩" data-caption="Pipoca depois do tratamento" aria-label="Ampliar foto: Pipoca depois do tratamento"><b class="fw-normal" aria-hidden="true">🐩</b><span>Pipoca depois do tratamento</span></button>
-          <button type="button" style="background:#cfe5ec" data-emoji="🦮" data-caption="Baleia na fisioterapia" aria-label="Ampliar foto: Baleia na fisioterapia"><b class="fw-normal" aria-hidden="true">🦮</b><span>Baleia na fisioterapia</span></button>
-          <button type="button" style="background:#f3dccd" data-emoji="🐱" data-caption="Feira de adoção no Busto de Tamandaré" aria-label="Ampliar foto: Feira de adoção no Busto de Tamandaré"><b class="fw-normal" aria-hidden="true">🐱</b><span>Feira de adoção no Busto de Tamandaré</span></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="video-title">
-      <div class="container">
-        <div class="row g-4 align-items-center">
+          <!-- FERRAMENTAS (HARD SKILLS): Grid do Bootstrap com 2 colunas -->
           <div class="col-12 col-lg-5">
-            <p class="eyebrow">Por dentro do abrigo</p>
-            <h2 id="video-title">Um dia no Lar de Patas</h2>
-            <p class="text-muted-lp">Do café da manhã dos cães à visita da veterinária: veja como cada doação vira cuidado de verdade.</p>
+            <div class="painel h-100">
+              <h3 class="rotulo" data-en='Tools &amp; Technologies <span aria-hidden="true">✦</span>'>
+                Ferramentas &amp; Tecnologias <span aria-hidden="true">✦</span>
+              </h3>
+
+              <div class="row row-cols-2 g-2">
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-filetype-html" aria-hidden="true"></i></span><span class="ferramenta-nome">HTML5</span></div></div>
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-filetype-css" aria-hidden="true"></i></span><span class="ferramenta-nome">CSS3</span></div></div>
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-filetype-js" aria-hidden="true"></i></span><span class="ferramenta-nome">JavaScript</span></div></div>
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-bootstrap-fill" aria-hidden="true"></i></span><span class="ferramenta-nome">Bootstrap</span></div></div>
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-filetype-py" aria-hidden="true"></i></span><span class="ferramenta-nome">Python</span></div></div>
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-vector-pen" aria-hidden="true"></i></span><span class="ferramenta-nome">Figma</span></div></div>
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-pencil-square" aria-hidden="true"></i></span><span class="ferramenta-nome">Balsamiq</span></div></div>
+                <div class="col"><div class="ferramenta"><span class="ferramenta-icone"><i class="bi bi-heart" aria-hidden="true"></i></span><span class="ferramenta-nome">Lovable</span></div></div>
+              </div>
+
+              <p class="mais-ferramentas" data-en="&amp; always learning new ones">&amp; sempre aprendendo novas</p>
+
+              <h3 class="rotulo mt-4" data-en='Languages <span aria-hidden="true">✦</span>'>
+                Idiomas <span aria-hidden="true">✦</span>
+              </h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="idioma-chip" data-en="English: fluent">Inglês fluente</span>
+                <span class="idioma-chip" data-en="Spanish: intermediate">Espanhol intermediário</span>
+              </div>
+            </div>
           </div>
+
+          <!-- SOFT SKILLS: lista numerada + flor -->
           <div class="col-12 col-lg-7">
-            <div class="embed ratio ratio-16x9">
-              <!-- Troque SEU_VIDEO_AQUI pelo código do vídeo do YouTube (o trecho depois de "v=") -->
-              <iframe src="https://www.youtube.com/embed/SEU_VIDEO_AQUI" title="Vídeo: um dia no abrigo Lar de Patas" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="painel painel-flor h-100">
+              <div class="row g-0 h-100">
+
+                <div class="col-12 col-md-6">
+                  <h3 class="rotulo" data-en='Soft Skills <span aria-hidden="true">✦</span>'>
+                    Soft Skills <span aria-hidden="true">✦</span>
+                  </h3>
+                  <ol class="lista-processo">
+                    <li>
+                      <span class="numero" aria-hidden="true">01</span>
+                      <div>
+                        <strong data-en="People Management">Gestão de Pessoas</strong>
+                        <p data-en="Coordinating multidisciplinary teams with a focus on results.">Coordenação de equipes multidisciplinares, com foco em resultado.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="numero" aria-hidden="true">02</span>
+                      <div>
+                        <strong data-en="Leadership">Liderança</strong>
+                        <p data-en="Leading complex demands with clarity and responsibility.">Condução de demandas complexas com clareza e responsabilidade.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="numero" aria-hidden="true">03</span>
+                      <div>
+                        <strong data-en="Organization">Organização</strong>
+                        <p data-en="Well-structured routines, deadlines and processes.">Rotinas, prazos e processos bem estruturados.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="numero" aria-hidden="true">04</span>
+                      <div>
+                        <strong data-en="Communication">Comunicação</strong>
+                        <p data-en="Making legal and technical topics clear to any audience.">Clareza para traduzir temas jurídicos e técnicos para qualquer público.</p>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="numero" aria-hidden="true">05</span>
+                      <div>
+                        <strong data-en="Proactivity">Proatividade</strong>
+                        <p data-en="Anticipating problems and proposing solutions.">Antecipar problemas e propor soluções.</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+
+                <!-- a flor: delicadeza do olhar do Direito + tecnologia (miolo de linhas de código) -->
+                <div class="col-12 col-md-6">
+                  <figure class="flor-arte">
+                    <!-- duas versões: o CSS mostra só a que combina com o tema -->
+                    <img src="img/flor-codigo-clara.svg" class="flor-tema-claro"
+                         alt="Flor desenhada com linhas finas em tons de azul, com o miolo formado por linhas de código"
+                         data-en-alt="Flower drawn with fine lines in shades of blue, with its center made of lines of code">
+                    <img src="img/flor-codigo.svg" class="flor-tema-escuro"
+                         alt="Flor desenhada com linhas finas em tons de azul, com o miolo formado por linhas de código"
+                         data-en-alt="Flower drawn with fine lines in shades of blue, with its center made of lines of code">
+                    <figcaption class="flor-frase" data-en="A thoughtful process for meaningful results.">
+                      Um processo cuidadoso para resultados significativos.
+                    </figcaption>
+                  </figure>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== 6. PROJETOS (CARDS) ========== -->
+    <section id="projetos" class="py-5">
+      <div class="container">
+        <h2 class="titulo-secao text-center mb-5" data-en="Projects">Projetos</h2>
+
+        <!-- 1 card por linha no celular, 2 no tablet, 3 no computador -->
+        <div class="row g-4">
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">HelpDay</h3>
+                <span class="badge rounded-pill tag align-self-start mb-2" data-en="Team project">Projeto em equipe</span>
+                <p class="card-text" data-en="Web application built with Lovable that works as a personal assistant to organize daily life. Using APIs, it sends weather and traffic alerts and suggests events for free time.">
+                  Aplicação web desenvolvida no Lovable que funciona como assistente pessoal para
+                  organizar o dia a dia. Com uso de APIs, gera alertas sobre o tempo e o trânsito
+                  e sugere eventos para o tempo livre.
+                </p>
+                <!-- equipe do projeto -->
+                <p class="equipe-titulo" data-en="Team">Equipe</p>
+                <ul class="equipe">
+                  <li>Amanda Beatriz Andrade Baía</li>
+                  <li>Laís Honório de Melo</li>
+                  <li>Luiz Felipe da Silva Cabral</li>
+                  <li>Ronald Jones de Melo Gomes Farias</li>
+                  <li>Poliana Ferreira Vieira de Melo</li>
+                </ul>
+                <!-- mt-auto empurra o botão para o fim do card -->
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start" data-en="Learn More">Saiba Mais</a>
+              </div>
+
+              <!-- PRÉVIA: fica escondida e aparece por cima do card ao passar o mouse -->
+              <div class="previa previa-celular" style="background-color: #E9EEF3;">
+                <img src="img/helpday.webp" alt="Tela inicial do Help Day" data-en-alt="Help Day home screen">
+                <img src="img/helpday-2.webp" alt="Tela de resumo do dia do Help Day" data-en-alt="Help Day daily summary screen">
+                <img src="img/helpday-3.webp" alt="Modo anti-procrastinação do Help Day" data-en-alt="Help Day anti-procrastination mode">
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">PortLab</h3>
+                <span class="badge rounded-pill tag align-self-start mb-2" data-en="Team project">Projeto em equipe</span>
+                <p class="card-text" data-en="App prototype to help new IT graduates gain experience and enter the job market. Interface design from paper sketches to low-fidelity (Balsamiq) and high-fidelity (Figma) prototypes.">
+                  Protótipo de aplicativo para ajudar recém-formados em TI a ganhar experiência e
+                  entrar no mercado. Design da interface desde os rascunhos em papel até protótipos
+                  de baixa (Balsamiq) e alta fidelidade (Figma).
+                </p>
+                <p class="equipe-titulo" data-en="Team">Equipe</p>
+                <ul class="equipe">
+                  <li>Amanda Beatriz Andrade Baía</li>
+                  <li>Laís Honório de Melo</li>
+                  <li>Luiz Felipe da Silva Cabral</li>
+                  <li>Ronald Jones de Melo Gomes Farias</li>
+                  <li>Poliana Ferreira Vieira de Melo</li>
+                </ul>
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start" data-en="Learn More">Saiba Mais</a>
+              </div>
+
+              <div class="previa previa-celular" style="background-color: #221179;">
+                <img src="img/portlab.webp" alt="Tela inicial do PortLab: escolha seu perfil" data-en-alt="PortLab home screen: choose your profile">
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">Plutus</h3>
+                <p class="card-text" data-en="Personal financial intelligence web application, built with Lovable. It organizes finances, shows where the money goes and creates a clear path to each goal.">
+                  Aplicação web de inteligência financeira pessoal, desenvolvida no Lovable.
+                  Organiza as finanças, mostra para onde o dinheiro vai e cria um caminho claro
+                  até cada meta.
+                </p>
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start" data-en="Learn More">Saiba Mais</a>
+              </div>
+
+              <div class="previa" style="background-color: #120F2E;">
+                <img src="img/plutus.webp" alt="Tela inicial do Plutus: O deus da riqueza, agora no seu bolso" data-en-alt="Plutus home screen">
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card projeto h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold text-azul">New Marketplace</h3>
+                <span class="badge rounded-pill tag align-self-start mb-2" data-en="Team project">Projeto em equipe</span>
+                <p class="card-text" data-en='Academic team project about a marketplace, themed "Your opportunity".'>
+                  Projeto acadêmico em equipe sobre marketplace, com o tema "A sua oportunidade".
+                </p>
+                <p class="equipe-titulo" data-en="Team">Equipe</p>
+                <ul class="equipe">
+                  <li>Amanda Beatriz Andrade Baía</li>
+                  <li>Gabriela Falcão</li>
+                  <li>Matheus Arruda</li>
+                  <li>Vitor Campelo</li>
+                </ul>
+                <a href="https://github.com/amanda-baia" target="_blank" class="btn btn-primary mt-auto align-self-start" data-en="Learn More">Saiba Mais</a>
+              </div>
+
+              <div class="previa previa-inteira" style="background-color: #101C2C;">
+                <img src="img/marketplace.webp" alt="Capa do projeto Marketplace: a sua oportunidade" data-en-alt="Marketplace project cover: your opportunity">
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== 7. FORMULÁRIO DE CONTATO ========== -->
+    <section id="contato" class="py-5 bg-azul-nevoa">
+      <div class="container">
+        <h2 class="titulo-secao text-center mb-5" data-en="Contact">Contato</h2>
+
+        <!-- formulário centralizado: ocupa 8 das 12 colunas no computador -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+            <div class="card border-0 shadow-sm p-4">
+
+              <!-- FORMSPREE: troque SEU_CODIGO pelo código do seu formulário (ex.: xyzabcde) -->
+              <!-- novalidate: deixa o Bootstrap cuidar da validação -->
+              <form id="formContato" class="needs-validation" novalidate
+                    action="https://formspree.io/f/SEU_CODIGO" method="POST">
+
+                <!-- assunto do e-mail que chega para mim -->
+                <input type="hidden" name="_subject" value="Nova mensagem pelo portfólio">
+                <!-- armadilha anti-spam: pessoas não veem este campo; robôs preenchem -->
+                <input type="text" name="_gotcha" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <!-- nome e e-mail lado a lado no computador -->
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="nome" class="form-label fw-bold" data-en="Name">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome"
+                           data-en-placeholder="Your name" required minlength="3" autocomplete="name">
+                    <div class="invalid-feedback" data-en="Enter your name (at least 3 letters).">Digite seu nome (mínimo 3 letras).</div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label for="email" class="form-label fw-bold" data-en="E-mail">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@exemplo.com"
+                           data-en-placeholder="youremail@example.com" required autocomplete="email">
+                    <div class="invalid-feedback" data-en="Enter a valid e-mail.">Digite um e-mail válido.</div>
+                  </div>
+                </div>
+
+                <div class="mt-3">
+                  <label for="assunto" class="form-label fw-bold" data-en="Subject">Assunto</label>
+                  <select class="form-select" id="assunto" name="assunto">
+                    <option value="Oportunidade de estágio" data-en="Internship opportunity">Oportunidade de estágio</option>
+                    <option value="Oportunidade na advocacia" data-en="Legal opportunity">Oportunidade na advocacia</option>
+                    <option value="Projeto" data-en="Project">Projeto</option>
+                    <option value="Outro" data-en="Other">Outro</option>
+                  </select>
+                </div>
+
+                <div class="mt-3">
+                  <label for="mensagem" class="form-label fw-bold" data-en="Message">Mensagem</label>
+                  <textarea class="form-control" id="mensagem" name="mensagem" rows="5" maxlength="1000"
+                            placeholder="Escreva sua mensagem" data-en-placeholder="Write your message" required></textarea>
+                  <div class="invalid-feedback" data-en="Write a message.">Escreva uma mensagem.</div>
+                  <div id="contador" class="form-text text-end" aria-live="polite">0/1000 caracteres</div>
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+                  <button type="submit" id="enviar" class="btn btn-primary btn-lg flex-fill">Enviar</button>
+                  <button type="button" id="limpar" class="btn btn-outline-primary btn-lg" data-en="Clear">Limpar</button>
+                </div>
+              </form>
+
+              <!-- alertas (aparecem pelo JS) -->
+              <div id="sucesso" class="alert alert-success mt-4 mb-0 d-none" role="alert"></div>
+              <div id="erro" class="alert alert-danger mt-4 mb-0 d-none" role="alert"></div>
+
+              <p class="text-center small mt-4 mb-0">
+                <span data-en="Or write directly to">Ou escreva direto para</span>
+                <a href="mailto:amandabaiaadv@gmail.com" class="link-azul">amandabaiaadv@gmail.com</a>
+              </p>
+
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Modal: ficha do pet (preenchido via JavaScript) -->
-  <div class="modal fade" id="petModal" tabindex="-1" aria-labelledby="petModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title h4" id="petModalLabel">Ficha</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body" id="petModalBody"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-lp" data-bs-dismiss="modal">Voltar</button>
-          <a class="btn btn-lp" id="petModalAdopt" href="pages/contato.html#formulario">Quero adotar</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Modal: galeria ampliada -->
-  <div class="modal fade" id="lightbox" tabindex="-1" aria-labelledby="lightboxLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title h5" id="lightboxLabel">Foto</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body">
-          <figure class="mb-0">
-            <div class="lightbox-figure" id="lightboxFig" role="img" aria-labelledby="lightboxCaption"></div>
-            <figcaption class="mt-2 text-center" id="lightboxCaption"></figcaption>
-          </figure>
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-outline-lp" id="lbPrev"><i class="bi bi-chevron-left" aria-hidden="true"></i> Anterior</button>
-          <button type="button" class="btn btn-outline-lp" id="lbNext">Próxima <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="site-footer">
+  <!-- ========== 8. FOOTER ========== -->
+  <footer class="bg-azul-escuro text-white text-center py-4">
     <div class="container">
-      <div class="row g-4">
-        <section class="col-12 col-md-5">
-          <img class="footer-logo mb-3" src="images/logo-lar-de-patas.webp" alt="Lar de Patas" width="170" height="144" loading="lazy">
-          <p class="mb-0">ONG de proteção animal em João Pessoa (PB). Resgatamos, tratamos e encontramos famílias para cães, gatos, aves, coelhos e outros animais abandonados.</p>
-        </section>
-        <section class="col-12 col-sm-6 col-md-3">
-          <h2>Navegue</h2>
-          <ul>
-            <li><a href="pages/adote.html">Animais para adoção</a></li>
-            <li><a href="pages/ajude.html">Apadrinhe ou doe</a></li>
-            <li><a href="pages/ajude.html#voluntario">Seja voluntário</a></li>
-            <li><a href="pages/saude.html">Atendimento veterinário gratuito</a></li>
-            <li><a href="pages/contato.html">Contato</a></li>
-          </ul>
-        </section>
-        <section class="col-12 col-sm-6 col-md-4">
-          <h2>Fale com a gente</h2>
-          <ul>
-            <li><i class="bi bi-whatsapp" aria-hidden="true"></i> (83) 99999-0000</li>
-            <li><i class="bi bi-envelope" aria-hidden="true"></i> contato@lardepatas.org</li>
-            <li><a href="https://instagram.com" target="_blank" rel="noopener"><i class="bi bi-instagram" aria-hidden="true"></i> @lardepatas</a></li>
-          </ul>
-        </section>
-      </div>
-      <hr class="my-4 opacity-25">
-      <p class="small mb-0">© <span class="js-year">2026</span> Lar de Patas · Projeto Integrador de Desenvolvimento Front-End · UNIPÊ. ONG fictícia, criada para fins acadêmicos.</p>
+      <p class="mb-1 fw-bold">Amanda Baía</p>
+      <p class="mb-1 fw-bold">"May the Odds be Ever in Your Favor"</p>
+      <p class="mb-1 small">
+        &copy; <span id="ano">2026</span> Amanda Baía.
+        <span data-en="Logo, name, images and texts: all rights reserved.">Logo, nome, imagens e textos: todos os direitos reservados.</span>
+      </p>
+      <p class="mb-1 small opacity-75">
+        <span data-en="Source code under the">Código-fonte sob licença</span>
+        <a href="https://github.com/amanda-baia/portfolio/blob/main/LICENSE" target="_blank" class="link-light">MIT</a>.
+      </p>
+      <p id="visita" class="mb-0 small opacity-75"></p>
     </div>
   </footer>
 
-  <button id="backToTop" class="back-to-top" type="button" aria-label="Voltar ao topo"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
 
-  <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- ========== 9. BOTÕES FLUTUANTES ========== -->
+
+  <!-- ACESSIBILIDADE: botão + painel de opções -->
+  <button id="botao-acessibilidade" class="botao-flutuante botao-acessibilidade" type="button"
+          aria-expanded="false" aria-controls="painel-acessibilidade"
+          aria-label="Opções de acessibilidade" data-en-aria-label="Accessibility options">
+    <i class="bi bi-universal-access" aria-hidden="true"></i>
+  </button>
+
+  <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+    <p class="painel-titulo" data-en="Accessibility">Acessibilidade</p>
+
+    <p class="painel-rotulo" data-en="Text size">Tamanho do texto</p>
+    <div class="d-flex gap-2 mb-3">
+      <button type="button" class="btn-a11y" data-fonte="-1" aria-label="Diminuir texto" data-en-aria-label="Decrease text size">A−</button>
+      <button type="button" class="btn-a11y" data-fonte="0" aria-label="Texto no tamanho padrão" data-en-aria-label="Default text size">A</button>
+      <button type="button" class="btn-a11y" data-fonte="1" aria-label="Aumentar texto" data-en-aria-label="Increase text size">A+</button>
+    </div>
+
+    <button type="button" class="btn-a11y w-100 mb-2" data-opcao="alto-contraste" aria-pressed="false">
+      <i class="bi bi-circle-half" aria-hidden="true"></i> <span data-en="High contrast">Alto contraste</span>
+    </button>
+    <button type="button" class="btn-a11y w-100 mb-2" data-opcao="destacar-links" aria-pressed="false">
+      <i class="bi bi-link-45deg" aria-hidden="true"></i> <span data-en="Highlight links">Destacar links</span>
+    </button>
+    <button type="button" class="btn-a11y w-100 mb-2" data-opcao="sem-animacoes" aria-pressed="false">
+      <i class="bi bi-pause-circle" aria-hidden="true"></i> <span data-en="Pause animations">Pausar animações</span>
+    </button>
+    <button type="button" id="restaurar-a11y" class="btn-a11y btn-restaurar w-100">
+      <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> <span data-en="Reset">Restaurar padrão</span>
+    </button>
+  </div>
+
+  <!-- VOLTAR AO TOPO: aparece depois que a página desce -->
+  <button id="voltar-topo" class="botao-flutuante botao-topo" type="button"
+          aria-label="Voltar ao topo" data-en-aria-label="Back to top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+
+
+  <!-- BOOTSTRAP 5 (JS): faz o menu hambúrguer funcionar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Meu JavaScript -->
   <script src="js/script.js"></script>
 </body>
 </html>
